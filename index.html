@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Harmanpreet Singh - Full-Stack Developer & AI Engineer. Building secure, scalable web applications with React, Node.js, Python, and MongoDB.">
+    <meta name="keywords" content="Full-Stack Developer, AI Engineer, React, Node.js, Python, MongoDB, Berlin, Germany">
+    <meta name="author" content="Harmanpreet Singh">
+    <meta property="og:title" content="Harmanpreet Singh | Full-Stack Developer & AI Engineer">
+    <meta property="og:description" content="Building secure, scalable web applications with modern tech stack.">
+    <meta property="og:type" content="website">
+    <title>Harmanpreet Singh | Full-Stack Developer & AI Engineer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Particle Background Canvas -->
+    <canvas id="particles-canvas"></canvas>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo" aria-label="Home">
+                <i class="fas fa-terminal"></i>
+                <span>HS.dev</span>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#stack">Tech Stack</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="https://linkedin.com/in/harman-hanjra-93b3451a6" target="_blank" class="nav-icon" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://github.com" target="_blank" class="nav-icon" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-bg">
+            <div class="orb orb-1"></div>
+            <div class="orb orb-2"></div>
+            <div class="orb orb-3"></div>
+        </div>
+        <div class="hero-grid"></div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <div class="hero-badge">
+                    <span class="pulse-dot"></span>
+                    <span>Open to Opportunities</span>
+                </div>
+                <h1 class="hero-title">
+                    Hi, I'm <span class="gradient-text">Harmanpreet</span>
+                </h1>
+                <div class="hero-roles">
+                    <span class="role-tag">Full-Stack Developer</span>
+                    <span class="role-separator">|</span>
+                    <span class="role-tag">AI Engineer</span>
+                    <span class="role-separator">|</span>
+                    <span class="role-tag">Security Specialist</span>
+                </div>
+                <p class="hero-description">
+                    I architect secure, scalable systems using <strong>React 19</strong>, <strong>Node.js 22</strong>, 
+                    <strong>Python 3.12</strong>, and <strong>MongoDB 7</strong>. Currently integrating 
+                    <strong>LLMs</strong> and <strong>GenAI</strong> into production pipelines.
+                </p>
+                <div class="hero-cta">
+                    <a href="#projects" class="btn btn-primary">
+                        <i class="fas fa-rocket"></i>
+                        View My Work
+                    </a>
+                    <a href="#contact" class="btn btn-outline">
+                        <i class="fas fa-paper-plane"></i>
+                        Hire Me
+                    </a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-card">
+                        <span class="stat-number" data-target="3">0</span>
+                        <span class="stat-suffix">+</span>
+                        <span class="stat-label">Years Experience</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number" data-target="10">0</span>
+                        <span class="stat-suffix">+</span>
+                        <span class="stat-label">Projects Shipped</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number" data-target="60">0</span>
+                        <span class="stat-suffix">%</span>
+                        <span class="stat-label">Security Boost</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number" data-target="22">0</span>
+                        <span class="stat-suffix">%</span>
+                        <span class="stat-label">AI Accuracy Gain</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="code-window">
+                    <div class="code-header">
+                        <div class="code-dots">
+                            <span class="code-dot red"></span>
+                            <span class="code-dot yellow"></span>
+                            <span class="code-dot green"></span>
+                        </div>
+                        <span class="code-filename">portfolio.tsx</span>
+                    </div>
+                    <div class="code-body">
+                        <pre><code><span class="token-keyword">interface</span> <span class="token-class">Developer</span> {
+  <span class="token-property">name</span>: <span class="token-type">string</span>;
+  <span class="token-property">role</span>: <span class="token-type">"Full-Stack"</span> | <span class="token-type">"AI Engineer"</span>;
+  <span class="token-property">location</span>: <span class="token-type">"Berlin, DE"</span>;
+  <span class="token-property">stack</span>: <span class="token-type">string[]</span>;
+  <span class="token-property">passion</span>: <span class="token-type">"Building the future"</span>;
+}
+
+<span class="token-keyword">const</span> <span class="token-variable">harmanpreet</span>: <span class="token-class">Developer</span> = {
+  <span class="token-property">name</span>: <span class="token-string">"Harmanpreet Singh"</span>,
+  <span class="token-property">role</span>: <span class="token-string">"Full-Stack"</span>,
+  <span class="token-property">location</span>: <span class="token-string">"Berlin, Germany"</span>,
+  <span class="token-property">stack</span>: [
+    <span class="token-string">"React 19"</span>, <span class="token-string">"Node.js 22"</span>,
+    <span class="token-string">"Python 3.12"</span>, <span class="token-string">"MongoDB 7"</span>,
+    <span class="token-string">"Docker"</span>, <span class="token-string">"AWS"</span>
+  ],
+  <span class="token-property">passion</span>: <span class="token-string">"Secure, scalable, AI-powered"</span>
+};
+
+<span class="token-comment">// Let's build something amazing together</span>
+<span class="token-variable">harmanpreet</span>.<span class="token-function">connect</span>();<span class="cursor">|</span></code></pre>
+                    </div>
+                </div>
+                <div class="floating-tech">
+                    <div class="tech-float" data-tech="React"><i class="fab fa-react"></i></div>
+                    <div class="tech-float" data-tech="Node"><i class="fab fa-node"></i></div>
+                    <div class="tech-float" data-tech="Python"><i class="fab fa-python"></i></div>
+                    <div class="tech-float" data-tech="Docker"><i class="fab fa-docker"></i></div>
+                    <div class="tech-float" data-tech="AWS"><i class="fab fa-aws"></i></div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+            <span>Scroll to explore</span>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about section-alt" id="about">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-tag">About Me</span>
+                <h2 class="section-title">Engineering the <span class="gradient-text">Future</span></h2>
+                <p class="section-subtitle">Full-Stack Developer with AI/ML expertise, based in Berlin</p>
+            </div>
+            <div class="about-grid">
+                <div class="about-profile animate-on-scroll">
+                    <div class="profile-card">
+                        <div class="profile-avatar">
+                            <i class="fas fa-user-astronaut"></i>
+                            <div class="profile-status" title="Available for work">
+                                <span class="status-dot"></span>
+                            </div>
+                        </div>
+                        <div class="profile-info">
+                            <h3>Harmanpreet Singh</h3>
+                            <p>Full-Stack Developer & AI Engineer</p>
+                        </div>
+                        <div class="profile-meta">
+                            <div class="meta-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Berlin, Germany</span>
+                            </div>
+                            <div class="meta-item">
+                                <i class="fas fa-passport"></i>
+                                <span>EU Work Authorized</span>
+                            </div>
+                            <div class="meta-item">
+                                <i class="fas fa-graduation-cap"></i>
+                                <span>BCA, Chitkara University</span>
+                            </div>
+                            <div class="meta-item">
+                                <i class="fas fa-briefcase"></i>
+                                <span>3+ Years Experience</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-content animate-on-scroll">
+                    <div class="about-text">
+                        <h3>Turning Complex Problems Into Elegant Solutions</h3>
+                        <p>
+                            I'm a Full-Stack Developer with <strong>3+ years</strong> of experience building secure, 
+                            scalable web applications. My stack centers on <strong>React 19</strong>, <strong>Node.js 22</strong>, 
+                            <strong>Python 3.12</strong>, and <strong>MongoDB 7</strong>, with deep expertise in 
+                            AI/ML integration using <strong>TensorFlow</strong>, <strong>Transformers</strong>, and 
+                            <strong>LLM orchestration</strong>.
+                        </p>
+                        <p>
+                            Currently contributing to <strong>open-source generative AI</strong> at Reality AI Labs, 
+                            where I build transformer-based modules for code generation and document intelligence. 
+                            I'm passionate about <strong>cybersecurity</strong> — having reduced client security exposure 
+                            by <strong>60%</strong> through OWASP-compliant designs and penetration testing.
+                        </p>
+                        <p>
+                            Open to <strong>full-time, hybrid, or remote</strong> roles across Europe. 
+                            I bring a unique blend of full-stack engineering and AI expertise to every project.
+                        </p>
+                    </div>
+                    <div class="about-highlights">
+                        <div class="highlight-card">
+                            <div class="highlight-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <div class="highlight-content">
+                                <h4>Security First</h4>
+                                <p>OWASP Top 10, secure coding, penetration testing</p>
+                            </div>
+                        </div>
+                        <div class="highlight-card">
+                            <div class="highlight-icon">
+                                <i class="fas fa-brain"></i>
+                            </div>
+                            <div class="highlight-content">
+                                <h4>AI/ML Integration</h4>
+                                <p>LLMs, NLP pipelines, GenAI in production</p>
+                            </div>
+                        </div>
+                        <div class="highlight-card">
+                            <div class="highlight-icon">
+                                <i class="fas fa-bolt"></i>
+                            </div>
+                            <div class="highlight-content">
+                                <h4>Performance</h4>
+                                <p>30% inference speed improvement achieved</p>
+                            </div>
+                        </div>
+                        <div class="highlight-card">
+                            <div class="highlight-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="highlight-content">
+                                <h4>Scale</h4>
+                                <p>5,000+ user platforms built & deployed</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="languages">
+                        <span class="lang-badge"><i class="fas fa-circle"></i> English — Fluent</span>
+                        <span class="lang-badge"><i class="fas fa-circle"></i> Hindi — Native</span>
+                        <span class="lang-badge"><i class="fas fa-circle"></i> Punjabi — Native</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech Stack Section -->
+    <section class="stack" id="stack">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-tag">Tech Stack 2026</span>
+                <h2 class="section-title">Modern <span class="gradient-text">Technology</span></h2>
+                <p class="section-subtitle">Cutting-edge tools I use to build production-grade applications</p>
+            </div>
+            <div class="stack-grid">
+                <div class="stack-category animate-on-scroll">
+                    <div class="stack-header">
+                        <div class="stack-icon">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <h3>Frontend</h3>
+                        <span class="stack-version">2026</span>
+                    </div>
+                    <div class="stack-items">
+                        <div class="stack-item">
+                            <span class="item-name">React 19</span>
+                            <span class="item-level">Advanced</span>
+                        </div>
+                        <div class="stack-item">
+                            <span class="item-name">Next.js 15</span>
+                            <span class="item-level">Advanced</span>
+                        </div>
+                        <div class="stack-item">
+                            <span class="item-name">TypeScript 5.4</span>
+                            <span class="item-level">Advanced</span>
+                        </div>
+                        <div class="stack-item">
+                            <span class="item-name">Tailwind CSS v4</span>
+                            <span class="item-level">Advanced</span>
+                        </div>
+                        <div class="stack-item">
+                            <span class="item-name">Vite 6</span>
+                            <span class="item-level">Proficient</span>
+                        </div>
+                        <div class="stack-item">
+                            <span class="item-name">Angular 17</span>
+                            <span class="item-level">Proficient</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stack-category animate-on-scroll">
+                    <div class="stack-header">
+                        <div class="stack-icon">
+                            <i class="fas fa-server"></i>
+                        </div>
+                        <h3>Backend</h3>
+                        <span class="stack-version">2026</span>
+                    </div>
+                    <div class="stack-items">
+                        <div class="stack-item">
+                            <span class="item-name">Node.js 22</span>
+                            <span class="item-level">Advanced</span>
+                        </div>
+                        <div class="stack-item">
+                            <span class="item-name">Express.js 5</span>
+                            <span class="item-level">Advanced</span>
+                        </div>
+                        <div class="stack-item">
+                            <span class="item-name">Python 3.12</span>
+                            <span class="item-level">Advanced</span>
+                        </div>
+                        <div class="stack-item">
+                            <span class="item-name">FastAPI</span>
+                            <span class="item-level">Proficient</span>
+                        </div>
+                        <div class="stack-item">
+                            <span class="item-name">GraphQL</span>
+                            <span class="item-level">Proficient</span>
+                        </div>
+                        <div class="stack-item">
+                            <span class="item-name">tRPC</span>
+                            <span class="item-level">Proficient</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stack-category animate-on-scroll">
+                    <div class="stack-header">
+                        <div class="stack-icon">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <h3>Data</h3>
+                        <span class="stack-version">2026</span>
+                    </div>
+                    <div class="stack-items">
+                        <div class="stack-item">
+                            <span class="item-name">MongoDB 7</span>
+                            <span class="item-level">Advanced</span>
+                        </div>
+                        <div class="stack-item">
+                            <span class="item-name">PostgreSQL 16</span>
+                            <span class="item-level">Proficient</span>
+                        </div>
+                        <div class="stack-item">
+                            <span class="item-name">Redis 7</span>
+                            <span class="item-level">Proficient</span>
+                        </div>
+                        <div class="stack-item">
+                            <span class="item-name">Prisma ORM</span>
+                            <span class="item-level">Proficient</span>
+                        </div>
+                        <div class="stack-item">
+                            <span class="item-name">MySQL 8</span>
+                            <span class="item-level">Proficient</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stack-category animate-on-scroll">
+                    <div class="stack-header">
+                        <div class="stack-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h3>AI / ML</h3>
+                        <span class="stack-version">2026</span>
+                    </div>
+                    <div class="stack-items">
+                        <div class="stack-item">
+                            <span class="item-name">TensorFlow 2.16</span>
+                            <span class="item-level">Advanced</span>
+                        </div>
+                        <div class="stack-item">
+                            <span class="item-name">PyTorch 2.3</span>
+                            <span class="item-level">Proficient</span>
+                        </div>
+                        <div class="stack-item">
+                            <span class="item-name">Hugging Face</span>
+                            <span class="item-level">Advanced</span>
+                        </div>
+                        <div class="stack-item">
+                            <span class="item-name">LangChain</span>
+                            <span class="item-level">Proficient</span>
+                        </div>
+                        <div class="stack-item">
+                            <span class="item-name">OpenAI API</span>
+                            <span class="item-level">Advanced</span>
+                        </div>
+                        <div class="stack-item">
+                            <span class="item-name">SpaCy / NLTK</span>
+                            <span class="item-level">Proficient</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stack-category animate-on-scroll">
+                    <div class="stack-header">
+                        <div class="stack-icon">
+                            <i class="fas fa-cloud"></i>
+                        </div>
+                        <h3>DevOps & Cloud</h3>
+                        <span class="stack-version">2026</span>
+                    </div>
+                    <div class="stack-items">
+                        <div class="stack-item">
+                            <span class="item-name">AWS (EC2, S3, Lambda)</span>
+                            <span class="item-level">Advanced</span>
+                        </div>
+                        <div class="stack-item">
+                            <span class="item-name">Docker & Compose</span>
+                            <span class="item-level">Advanced</span>
+                        </div>
+                        <div class="stack-item">
+                            <span class="item-name">Kubernetes</span>
+                            <span class="item-level">Proficient</span>
+                        </div>
+                        <div class="stack-item">
+                            <span class="item-name">GitHub Actions</span>
+                            <span class="item-level">Advanced</span>
+                        </div>
+                        <div class="stack-item">
+                            <span class="item-name">Terraform</span>
+                            <span class="item-level">Proficient</span>
+                        </div>
+                        <div class="stack-item">
+                            <span class="item-name">Vercel / Netlify</span>
+                            <span class="item-level">Advanced</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stack-category animate-on-scroll">
+                    <div class="stack-header">
+                        <div class="stack-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3>Security</h3>
+                        <span class="stack-version">2026</span>
+                    </div>
+                    <div class="stack-items">
+                        <div class="stack-item">
+                            <span class="item-name">OWASP Top 10</span>
+                            <span class="item-level">Expert</span>
+                        </div>
+                        <div class="stack-item">
+                            <span class="item-name">JWT / OAuth 2.0</span>
+                            <span class="item-level">Advanced</span>
+                        </div>
+                        <div class="stack-item">
+                            <span class="item-name">Penetration Testing</span>
+                            <span class="item-level">Proficient</span>
+                        </div>
+                        <div class="stack-item">
+                            <span class="item-name">Snyk / Dependabot</span>
+                            <span class="item-level">Proficient</span>
+                        </div>
+                        <div class="stack-item">
+                            <span class="item-name">SSL / TLS</span>
+                            <span class="item-level">Advanced</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="experience section-alt" id="experience">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-tag">Career Timeline</span>
+                <h2 class="section-title">Professional <span class="gradient-text">Journey</span></h2>
+                <p class="section-subtitle">From freelance development to AI engineering</p>
+            </div>
+            <div class="timeline">
+                <div class="timeline-line"></div>
+
+                <div class="timeline-item animate-on-scroll">
+                    <div class="timeline-marker">
+                        <div class="marker-dot"></div>
+                        <div class="marker-date">
+                            <span>Dec 2024</span>
+                            <span>Present</span>
+                        </div>
+                    </div>
+                    <div class="timeline-card">
+                        <div class="card-badge badge-current">Current</div>
+                        <h3>Generative AI Engineer</h3>
+                        <div class="card-company">
+                            <i class="fas fa-building"></i>
+                            <span>Reality AI Labs (Open-Source)</span>
+                        </div>
+                        <ul class="card-achievements">
+                            <li>Built <strong>transformer-based modules</strong> for code generation, automation, and document intelligence pipelines</li>
+                            <li>Developed <strong>prompt-chaining workflows</strong> that improved model output accuracy by <strong>22%</strong></li>
+                            <li>Optimized <strong>GPU training workflows</strong>, boosting inference speed by <strong>30%</strong></li>
+                            <li>Collaborated with cybersecurity team on <strong>model safety</strong>, ethical AI guidelines, and compliance standards</li>
+                        </ul>
+                        <div class="card-tags">
+                            <span>Transformers</span>
+                            <span>LLMs</span>
+                            <span>PyTorch</span>
+                            <span>GPU Optimization</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item animate-on-scroll">
+                    <div class="timeline-marker">
+                        <div class="marker-dot"></div>
+                        <div class="marker-date">
+                            <span>Sep 2024</span>
+                            <span>Nov 2024</span>
+                        </div>
+                    </div>
+                    <div class="timeline-card">
+                        <div class="card-badge badge-intern">Internship</div>
+                        <h3>AI / ML Engineer Intern</h3>
+                        <div class="card-company">
+                            <i class="fas fa-building"></i>
+                            <span>NextGen AI Company</span>
+                        </div>
+                        <ul class="card-achievements">
+                            <li>Built <strong>ML prediction models</strong> using TensorFlow and Scikit-learn deployed via secure API endpoints</li>
+                            <li>Developed <strong>NLP pipelines</strong> for real-time text classification and intelligence extraction</li>
+                            <li>Automated data preprocessing workflows, reducing manual processing time by <strong>40%</strong></li>
+                        </ul>
+                        <div class="card-tags">
+                            <span>TensorFlow</span>
+                            <span>Scikit-learn</span>
+                            <span>NLP</span>
+                            <span>FastAPI</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item animate-on-scroll">
+                    <div class="timeline-marker">
+                        <div class="marker-dot"></div>
+                        <div class="marker-date">
+                            <span>Jan 2021</span>
+                            <span>Present</span>
+                        </div>
+                    </div>
+                    <div class="timeline-card">
+                        <div class="card-badge badge-freelance">Freelance</div>
+                        <h3>Full-Stack Developer</h3>
+                        <div class="card-company">
+                            <i class="fas fa-laptop"></i>
+                            <span>Freelance & Contract</span>
+                        </div>
+                        <ul class="card-achievements">
+                            <li>Designed and deployed <strong>10+ secure web apps</strong> using React, Node.js, and MongoDB across industries</li>
+                            <li>Implemented <strong>JWT authentication</strong>, encrypted data storage, and OWASP-compliant API designs</li>
+                            <li>Performed <strong>vulnerability assessments</strong>, reducing security exposure by <strong>60%</strong></li>
+                            <li>Delivered projects on time with measurable improvements in performance and security posture</li>
+                        </ul>
+                        <div class="card-tags">
+                            <span>React</span>
+                            <span>Node.js</span>
+                            <span>MongoDB</span>
+                            <span>OWASP</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects" id="projects">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-tag">Featured Work</span>
+                <h2 class="section-title">Key <span class="gradient-text">Projects</span></h2>
+                <p class="section-subtitle">Production-grade applications built with modern architecture</p>
+            </div>
+            <div class="projects-grid">
+                <article class="project-card animate-on-scroll">
+                    <div class="project-visual" style="--project-color: #6366f1;">
+                        <i class="fas fa-shopping-cart"></i>
+                        <div class="project-overlay">
+                            <a href="#" class="project-link" aria-label="View Code">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="#" class="project-link" aria-label="Live Demo">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <div class="project-tags">
+                            <span class="p-tag">Next.js 15</span>
+                            <span class="p-tag">Node.js 22</span>
+                            <span class="p-tag">MongoDB 7</span>
+                            <span class="p-tag">Stripe</span>
+                        </div>
+                        <h3>E-Commerce Platform</h3>
+                        <p>Full-stack platform supporting <strong>5,000+ users</strong> with secure payments, AI product recommendations, and real-time inventory management. Built with microservices architecture.</p>
+                        <div class="project-metrics">
+                            <div class="metric">
+                                <i class="fas fa-users"></i>
+                                <span>5,000+ Users</span>
+                            </div>
+                            <div class="metric">
+                                <i class="fas fa-lock"></i>
+                                <span>PCI-DSS Compliant</span>
+                            </div>
+                            <div class="metric">
+                                <i class="fas fa-brain"></i>
+                                <span>AI Recommendations</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="project-card animate-on-scroll">
+                    <div class="project-visual" style="--project-color: #f59e0b;">
+                        <i class="fas fa-chart-line"></i>
+                        <div class="project-overlay">
+                            <a href="#" class="project-link" aria-label="View Code">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="#" class="project-link" aria-label="Live Demo">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <div class="project-tags">
+                            <span class="p-tag">Python 3.12</span>
+                            <span class="p-tag">Scikit-learn</span>
+                            <span class="p-tag">FastAPI</span>
+                            <span class="p-tag">Docker</span>
+                        </div>
+                        <h3>Sales Forecasting Engine</h3>
+                        <p>ML-powered forecasting system achieving <strong>85% accuracy</strong>, improving inventory planning and reducing forecasting errors by <strong>18%</strong>. Deployed as containerized microservice.</p>
+                        <div class="project-metrics">
+                            <div class="metric">
+                                <i class="fas fa-bullseye"></i>
+                                <span>85% Accuracy</span>
+                            </div>
+                            <div class="metric">
+                                <i class="fas fa-arrow-trend-down"></i>
+                                <span>18% Error Reduction</span>
+                            </div>
+                            <div class="metric">
+                                <i class="fas fa-server"></i>
+                                <span>REST API</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="project-card animate-on-scroll">
+                    <div class="project-visual" style="--project-color: #10b981;">
+                        <i class="fas fa-robot"></i>
+                        <div class="project-overlay">
+                            <a href="#" class="project-link" aria-label="View Code">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="#" class="project-link" aria-label="Live Demo">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <div class="project-tags">
+                            <span class="p-tag">OpenAI API</span>
+                            <span class="p-tag">LangChain</span>
+                            <span class="p-tag">Node.js 22</span>
+                            <span class="p-tag">WebSocket</span>
+                        </div>
+                        <h3>AI Customer Support Bot</h3>
+                        <p>NLP-powered chatbot handling <strong>70% of queries</strong> autonomously using RAG architecture. Reduced response time by <strong>40%</strong> with real-time streaming responses.</p>
+                        <div class="project-metrics">
+                            <div class="metric">
+                                <i class="fas fa-comments"></i>
+                                <span>70% Auto-Resolved</span>
+                            </div>
+                            <div class="metric">
+                                <i class="fas fa-clock"></i>
+                                <span>40% Faster</span>
+                            </div>
+                            <div class="metric">
+                                <i class="fas fa-bolt"></i>
+                                <span>Streaming</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="project-card animate-on-scroll">
+                    <div class="project-visual" style="--project-color: #ec4899;">
+                        <i class="fas fa-tasks"></i>
+                        <div class="project-overlay">
+                            <a href="#" class="project-link" aria-label="View Code">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="#" class="project-link" aria-label="Live Demo">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <div class="project-tags">
+                            <span class="p-tag">React 19</span>
+                            <span class="p-tag">Node.js 22</span>
+                            <span class="p-tag">MongoDB 7</span>
+                            <span class="p-tag">Socket.io</span>
+                        </div>
+                        <h3>TeamSync — Task Manager</h3>
+                        <p>Role-based project management app improving team productivity by <strong>30%</strong>. Features real-time collaboration, Kanban boards, and automated sprint analytics.</p>
+                        <div class="project-metrics">
+                            <div class="metric">
+                                <i class="fas fa-chart-bar"></i>
+                                <span>30% Productivity</span>
+                            </div>
+                            <div class="metric">
+                                <i class="fas fa-sync"></i>
+                                <span>Real-time</span>
+                            </div>
+                            <div class="metric">
+                                <i class="fas fa-shield-alt"></i>
+                                <span>RBAC</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section class="certs section-alt" id="certs">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-tag">Credentials</span>
+                <h2 class="section-title">Certifications & <span class="gradient-text">Education</span></h2>
+                <p class="section-subtitle">Continuous learning in a rapidly evolving field</p>
+            </div>
+            <div class="certs-grid">
+                <div class="cert-card animate-on-scroll">
+                    <div class="cert-icon">
+                        <i class="fab fa-aws"></i>
+                    </div>
+                    <div class="cert-content">
+                        <h3>AWS Certified Developer</h3>
+                        <span class="cert-level">Associate</span>
+                        <p>Cloud-native application development, serverless architecture, and CI/CD on AWS</p>
+                    </div>
+                </div>
+                <div class="cert-card animate-on-scroll">
+                    <div class="cert-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <div class="cert-content">
+                        <h3>MongoDB Certified Developer</h3>
+                        <span class="cert-level">Professional</span>
+                        <p>Document modeling, aggregation pipelines, and Atlas cloud deployment</p>
+                    </div>
+                </div>
+                <div class="cert-card animate-on-scroll">
+                    <div class="cert-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <div class="cert-content">
+                        <h3>AI & ML for Business</h3>
+                        <span class="cert-level">Coursera</span>
+                        <p>Strategic AI implementation, ML lifecycle management, and business impact analysis</p>
+                    </div>
+                </div>
+                <div class="cert-card animate-on-scroll">
+                    <div class="cert-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="cert-content">
+                        <h3>Bachelor of Computer Applications</h3>
+                        <span class="cert-level">Chitkara University, 2021</span>
+                        <p>Foundation in software engineering, data structures, algorithms, and system design</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-tag">Get In Touch</span>
+                <h2 class="section-title">Let's Build <span class="gradient-text">Together</span></h2>
+                <p class="section-subtitle">Open to full-time, hybrid, or remote roles across Europe</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info animate-on-scroll">
+                    <h3>Start a Conversation</h3>
+                    <p>Have a project in mind or looking for a developer? I'm currently open to new opportunities and collaborations.</p>
+                    <div class="contact-methods">
+                        <a href="mailto:2000sharmanpreet@gmail.com" class="contact-method">
+                            <div class="method-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="method-details">
+                                <span class="method-label">Email</span>
+                                <span class="method-value">2000sharmanpreet@gmail.com</span>
+                            </div>
+                        </a>
+                        <a href="tel:+4917632305645" class="contact-method">
+                            <div class="method-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="method-details">
+                                <span class="method-label">Phone</span>
+                                <span class="method-value">+49 176 32305645</span>
+                            </div>
+                        </a>
+                        <a href="https://linkedin.com/in/harman-hanjra-93b3451a6" target="_blank" class="contact-method">
+                            <div class="method-icon">
+                                <i class="fab fa-linkedin-in"></i>
+                            </div>
+                            <div class="method-details">
+                                <span class="method-label">LinkedIn</span>
+                                <span class="method-value">linkedin.com/in/harman-hanjra</span>
+                            </div>
+                        </a>
+                        <div class="contact-method">
+                            <div class="method-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="method-details">
+                                <span class="method-label">Location</span>
+                                <span class="method-value">Berlin, Germany (EU Authorized)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form-wrapper animate-on-scroll">
+                    <form id="contactForm" class="contact-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" id="name" name="name" placeholder="Your name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" placeholder="your@email.com" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" placeholder="Project opportunity" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" placeholder="Tell me about your project, timeline, and tech stack..." rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-full">
+                            <i class="fas fa-paper-plane"></i>
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="#" class="footer-logo">
+                        <i class="fas fa-terminal"></i>
+                        <span>HS.dev</span>
+                    </a>
+                    <p>Full-Stack Developer & AI Engineer</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#home">Home</a>
+                    <a href="#about">About</a>
+                    <a href="#stack">Tech Stack</a>
+                    <a href="#experience">Experience</a>
+                    <a href="#projects">Projects</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <div class="footer-social">
+                    <a href="https://linkedin.com/in/harman-hanjra-93b3451a6" target="_blank" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="mailto:2000sharmanpreet@gmail.com" aria-label="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="tel:+4917632305645" aria-label="Phone">
+                        <i class="fas fa-phone"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p> 2025 Harmanpreet Singh. Built with modern web standards.</p>
+                <p class="footer-tech">React 19 · Node.js 22 · Python 3.12 · MongoDB 7 · Docker · AWS</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
