@@ -672,7 +672,8 @@
         </div>
       </div>
 
-      <form class="contact-form reveal" data-reveal="fade-left" id="contactForm" onsubmit="return handleSubmit(event)">
+      <form class="contact-form reveal" data-reveal="fade-left" id="contactForm">
+        <input type="text" name="botcheck" id="botcheck" style="display:none" tabindex="-1" autocomplete="off" />
         <div class="form-row">
           <div class="form-group">
             <input type="text" id="name" required />

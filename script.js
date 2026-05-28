@@ -9,6 +9,16 @@
 (() => {
   'use strict';
 
+  // ====================== CONFIG ======================
+  const CONFIG = {
+    // Web3Forms — emails arrive at 2000sharmanpreet@gmail.com
+    web3formsKey: '438634b1-d2d5-4912-902b-0fadd75e541e',
+    // Cloudflare Worker URL for Telegram notifications.
+    // Leave as '' to skip Telegram; deploy worker.js separately to enable.
+    // Example: 'https://portfolio-contact.YOUR-SUBDOMAIN.workers.dev'
+    telegramWorkerUrl: '',
+  };
+
   // ====================== LOADER ======================
   window.addEventListener('load', () => {
     setTimeout(() => {
@@ -31,7 +41,6 @@
       cursor.style.top = my + 'px';
     });
 
-    // Trail with smoothed lerp
     const animateTrail = () => {
       tx += (mx - tx) * 0.15;
       ty += (my - ty) * 0.15;
@@ -43,7 +52,6 @@
     };
     animateTrail();
 
-    // Hover effect on interactive elements
     const hoverTargets = 'a, button, .stack-card, .project-card, .pill-card, .cert-card, .timeline-content, .contact-item, .stat, input, textarea';
     document.querySelectorAll(hoverTargets).forEach(el => {
       el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
@@ -123,21 +131,17 @@
     animate();
   }
 
-  // ====================== NAV: scroll behavior ======================
+  // ====================== NAV ======================
   const nav = document.getElementById('nav');
   let lastScroll = 0;
   window.addEventListener('scroll', () => {
     const y = window.scrollY;
     nav.classList.toggle('scrolled', y > 20);
-    if (y > 300 && y > lastScroll) {
-      nav.classList.add('hidden');
-    } else {
-      nav.classList.remove('hidden');
-    }
+    if (y > 300 && y > lastScroll) nav.classList.add('hidden');
+    else nav.classList.remove('hidden');
     lastScroll = y;
   });
 
-  // Mobile nav toggle
   const navToggle = document.getElementById('navToggle');
   const navLinks = document.getElementById('navLinks');
   navToggle?.addEventListener('click', () => {
@@ -151,7 +155,6 @@
     });
   });
 
-  // Active nav link based on scroll
   const sections = document.querySelectorAll('section[id]');
   const linkMap = {};
   document.querySelectorAll('.nav-link').forEach(l => {
@@ -173,7 +176,7 @@
   );
   sections.forEach(s => navObserver.observe(s));
 
-  // ====================== REVEAL ON SCROLL ======================
+  // ====================== REVEAL ======================
   const revealObserver = new IntersectionObserver(
     (entries) => {
       entries.forEach(entry => {
@@ -189,7 +192,7 @@
   );
   document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
-  // ====================== STAT COUNTERS ======================
+  // ====================== COUNTERS ======================
   const counterObserver = new IntersectionObserver(
     (entries) => {
       entries.forEach(entry => {
@@ -202,7 +205,6 @@
           function tick(now) {
             const elapsed = now - start;
             const progress = Math.min(elapsed / duration, 1);
-            // ease-out cubic
             const eased = 1 - Math.pow(1 - progress, 3);
             el.textContent = Math.floor(eased * target) + suffix;
             if (progress < 1) requestAnimationFrame(tick);
@@ -229,7 +231,7 @@
     });
   });
 
-  // ====================== 3D TILT on cards ======================
+  // ====================== 3D TILT ======================
   document.querySelectorAll('.stack-card, .cert-card, .project-card').forEach(card => {
     card.addEventListener('mousemove', (e) => {
       const rect = card.getBoundingClientRect();
@@ -255,27 +257,125 @@
     });
   });
 
+  // ====================== TOAST NOTIFICATIONS ======================
+  function showToast(message, type = 'info', duration = 5000) {
+    const existing = document.querySelector('.toast');
+    if (existing) existing.remove();
+
+    const toast = document.createElement('div');
+    toast.className = `toast toast-${type}`;
+    toast.innerHTML = `
+      <div class="toast-icon">${
+        type === 'success' ? '✅' :
+        type === 'error' ? '❌' :
+        type === 'loading' ? '<div class="toast-spinner"></div>' : 'ℹ️'
+      }</div>
+      <div class="toast-message">${message}</div>
+      ${type !== 'loading' ? '<button class="toast-close" aria-label="Close">×</button>' : ''}
+    `;
+    document.body.appendChild(toast);
+
+    // Animate in
+    requestAnimationFrame(() => toast.classList.add('show'));
+
+    const close = () => {
+      toast.classList.remove('show');
+      setTimeout(() => toast.remove(), 300);
+    };
+
+    toast.querySelector('.toast-close')?.addEventListener('click', close);
+
+    if (type !== 'loading' && duration > 0) {
+      setTimeout(close, duration);
+    }
+
+    return { close, element: toast };
+  }
+
   // ====================== CONTACT FORM ======================
-  window.handleSubmit = (e) => {
-    e.preventDefault();
-    const submitText = document.getElementById('submitText');
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const subject = document.getElementById('subject').value;
-    const message = document.getElementById('message').value;
+  const contactForm = document.getElementById('contactForm');
+  if (contactForm) {
+    contactForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
 
-    // Build mailto link (since this is a static site)
-    const body = `Hi Harmanpreet,\n\nName: ${name}\nEmail: ${email}\n\n${message}\n`;
-    const mailto = `mailto:2000sharmanpreet@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      const submitBtn = contactForm.querySelector('button[type="submit"]');
+      const submitText = document.getElementById('submitText');
+      const originalText = submitText?.textContent || 'Send Message';
 
-    submitText.textContent = 'Opening your email client…';
-    setTimeout(() => {
-      window.location.href = mailto;
-      submitText.textContent = 'Send Message';
-    }, 500);
+      const data = {
+        name: document.getElementById('name').value.trim(),
+        email: document.getElementById('email').value.trim(),
+        subject: document.getElementById('subject').value.trim(),
+        message: document.getElementById('message').value.trim(),
+      };
 
-    return false;
-  };
+      // Basic client-side validation
+      if (!data.name || !data.email || !data.message) {
+        showToast('Please fill in all required fields.', 'error');
+        return;
+      }
+
+      // Show loading
+      submitBtn.disabled = true;
+      if (submitText) submitText.textContent = 'Sending…';
+      const loadingToast = showToast('Sending your message…', 'loading', 0);
+
+      // ===== 1. Send to Web3Forms (email) — REQUIRED =====
+      const web3formsFormData = new FormData();
+      web3formsFormData.append('access_key', CONFIG.web3formsKey);
+      web3formsFormData.append('name', data.name);
+      web3formsFormData.append('email', data.email);
+      web3formsFormData.append('subject', data.subject || `Portfolio contact from ${data.name}`);
+      web3formsFormData.append('message', data.message);
+      web3formsFormData.append('from_name', 'Portfolio Contact Form');
+      web3formsFormData.append('botcheck', '');  // honeypot
+
+      let emailOk = false;
+      try {
+        const res = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          body: web3formsFormData,
+        });
+        const result = await res.json();
+        emailOk = res.ok && result.success;
+      } catch (err) {
+        console.error('Web3Forms error:', err);
+      }
+
+      // ===== 2. Send to Telegram via Worker (OPTIONAL) =====
+      // Runs in parallel/best-effort. Form succeeds even if this fails.
+      if (CONFIG.telegramWorkerUrl) {
+        try {
+          await fetch(CONFIG.telegramWorkerUrl, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data),
+          });
+        } catch (err) {
+          console.warn('Telegram delivery skipped:', err);
+        }
+      }
+
+      loadingToast.close();
+      submitBtn.disabled = false;
+      if (submitText) submitText.textContent = originalText;
+
+      if (emailOk) {
+        showToast(
+          `🎉 Thanks ${data.name.split(' ')[0]}! Your message is on its way. I'll get back to you soon.`,
+          'success',
+          7000
+        );
+        contactForm.reset();
+      } else {
+        showToast(
+          'Hmm, something went wrong. Please email me directly at 2000sharmanpreet@gmail.com',
+          'error',
+          8000
+        );
+      }
+    });
+  }
 
   // ====================== PARALLAX hero code card ======================
   const heroCode = document.querySelector('.hero-code');
@@ -297,7 +397,7 @@
         document.body.style.animation = 'gradient-shift 2s ease infinite';
         document.documentElement.style.setProperty('--brand-1', '#FF3DCB');
         document.documentElement.style.setProperty('--brand-2', '#FFB547');
-        console.log('🎉 Easter egg activated! Welcome, fellow developer.');
+        showToast('🎮 Easter egg unlocked! Theme transformed.', 'success', 4000);
         codePos = 0;
       }
     } else {
