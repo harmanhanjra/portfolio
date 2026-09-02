@@ -114,9 +114,9 @@ OWASP Top 10 · JWT / OAuth 2.0 · Penetration Testing · Snyk · TLS · Burp Su
 
 ---
 
-## 🎯 Featured Project: Nexus AI
+## 🎯 Flagship Projects
 
-The portfolio prominently showcases my latest work: **[Nexus AI — Next-Generation AI Agent Operating System](https://github.com/harmanhanjra/NEXUS-AI-The-Next-Generation-AI-Agent-Operating-System)**
+The portfolio now prioritizes verified engineering work: **Nexus AI**, **HireMatch AI**, **MCPGuardLab**, **ClipForge V2**, and **Auric Terminal**.
 
 A production-grade AI agent platform powered by Google Gemini with:
 - 🤖 **5 specialized agents** with smart per-agent model routing
@@ -203,7 +203,6 @@ Custom cursor disabled on touch devices automatically.
 - 📧 **Email:** [2000sharmanpreet@gmail.com](mailto:2000sharmanpreet@gmail.com)
 - 💼 **LinkedIn:** [linkedin.com/in/harman-hanjra](https://linkedin.com/in/harman-hanjra-93b3451a6)
 - 🐙 **GitHub:** [@harmanhanjra](https://github.com/harmanhanjra)
-- 📱 **Phone:** +49 176 32305645
 - 📍 **Location:** Berlin, Germany (EU Authorized)
 
 > **Open to:** Full-time · Hybrid · Remote roles across Europe.
