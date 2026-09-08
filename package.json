@@ -1,0 +1,7 @@
+{
+  "name": "harman-portfolio",
+  "private": true,
+  "type": "module",
+  "scripts": {"vendor": "node scripts/vendor.mjs", "check": "node --check script.js && node --check scene.js"},
+  "dependencies": {"three": "0.180.0"}
+}
