@@ -2,7 +2,9 @@
 
 [Live portfolio](https://harmanhanjra.github.io/portfolio/)
 
-An obsidian-and-lime portfolio featuring 16 selected public projects across AI systems, applications, security tools, games, and systems labs. Project descriptions and repository links were reviewed on September 5, 2026. Private repositories are not linked or exposed.
+Harmanpreet Singh — Software & Engineering Portfolio
+
+A portfolio of 16 selected public engineering projects across intelligent systems, applications, security tools, interactive worlds, and systems research. Project descriptions and repository links were reviewed on September 5, 2026. Private repositories are not linked or exposed. Built with defensive branding — no internal routing or automation details exposed.
 
 ## Run locally
 
